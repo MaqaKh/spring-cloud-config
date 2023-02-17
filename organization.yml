@@ -1,6 +1,16 @@
 server:
   port: 8086
-  
+
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      fallback1:
+        ring-buffer-size-in-closed-state: 5
+        ring-buffer-size-in-half-open-state: 3
+        wait-duration-in-open-state: 10s
+        failure-rate-threshold: 50
+        
 spring:
   eureka:
     instance:
