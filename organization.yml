@@ -16,7 +16,14 @@ resilience4j:
         - java.io.IOException
         - java.util.concurrent.TimeoutException
         - org.springframework.web.client.ResourceAccessException
-        
+  retry:
+    instances:
+      retryLicenseService:
+        maxRetryAttempts: 5 
+        waitDuration: 10000 
+        retry-exceptions: 
+        - java.util.concurrent.TimeoutException
+
 spring:
   eureka:
     instance:
